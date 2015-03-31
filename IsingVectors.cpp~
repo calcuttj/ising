@@ -17,7 +17,7 @@ int main()
   ofstream output_file;
   output_file.open("M_AvevskT.txt");
   int max_samples=100000;
-  vector<vector<int> > lattice(N,vector<int>(N,1) );
+
   srand(time(NULL)); 
   bool temp_check = false; 
   for(kT = 1;kT<max_kT;kT+=.1)
@@ -31,13 +31,13 @@ int main()
       double mag_array[50];
       for(int runs =0; runs<50;runs++)
 	{
-
-	  for (int count_1=0; count_1<N;count_1++)
+	  vector<vector<int> > lattice(N,vector<int>(N,1) );
+	  /* for (int count_1=0; count_1<N;count_1++)
 	    {
 	      for (int count_2 = 0; count_2<N;count_2++)
 		{lattice[count_1][count_2] = 1;}	   
 	    }
-	  
+	  */
 	  for(int sample=0;sample<max_samples;sample++)
 	  {
 	    int indx_1 = rand() % N;

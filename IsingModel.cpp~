@@ -2,8 +2,8 @@
 #include <fstream>
 #include <cmath>
 #include <limits>
-#include <cstdlib> 
-#include <time.h> 
+#include <cstdlib> //For Drew: I have no idea what some of these do, they are there just in case. 
+#include <time.h>  //Don't judge me. 
 #include <stdio.h>
 
 using namespace std;
@@ -16,7 +16,7 @@ int main()
   ofstream output_file;
   output_file.open("M_AvevskT.txt");
   int max_samples=100000;
-  srand(time(NULL));
+  srand(time(NULL));//For Greg: This seeds the RNG with the time to create a different sequence each run.
   int lattice_array[N][N]; 
   for(kT = .01;kT<max_kT;kT+=.1)
     {
@@ -72,7 +72,7 @@ int main()
       double variance = 0;
       for(int counter = 0; counter < 50; counter++)
 	{
-	  variance += pow((mag_array[counter]-mag_avg),2)*.02;
+	  variance += pow((mag_array[counter]-mag_avg),2)*.02;//.02 = 1/50 
 	}
       double std_dev = pow(variance,.5);
       output_file << kT << " "<< mag_avg << " " << mag_avg+std_dev*.5<<" "<<mag_avg-std_dev*.5 << "\n";
